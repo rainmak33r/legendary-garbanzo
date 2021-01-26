@@ -60,7 +60,7 @@ export function BookDetails(props: BookDetailsProps) {
         <Col span={12}>
           <Image
             width={300}
-            src={book?.volumeInfo?.imageLinks?.medium}
+            src={book?.volumeInfo?.imageLinks?.large}
             alt="Book"
           />
         </Col>

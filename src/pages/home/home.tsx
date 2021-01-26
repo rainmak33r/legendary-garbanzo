@@ -4,6 +4,7 @@ import { Empty, message, Space } from 'antd';
 import { APP_URLS } from '../../routes/app.urls';
 import { BookList } from '../../shared/components/books';
 import { useFetch } from '../../shared/components/fetch-provider';
+import { bookMock } from '../../mocks/books';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -16,7 +17,7 @@ const Home = () => {
 
   const getData = useCallback(() => {
     get(
-      'https://www.googleapis.com/books/v1/volumes?q=programming&key=AIzaSyAmouyNrolppxaPxOxcWnwGbX0GmtwiUhQ'
+      `https://www.googleapis.com/books/v1/volumes?q=programming&key=${process.env.GOOGLE_BOOKS_KEY}`
     )
       .then((data: { items: [] }) => {
         setBooks(data.items);
@@ -25,8 +26,10 @@ const Home = () => {
         message.open({
           type: 'error',
           duration: 5,
-          content: 'No bueno, senor',
+          content:
+            "no key, or smth...here's some mock data so that ur ain't sad.",
         });
+        setBooks([bookMock]);
       });
   }, [get]);
 

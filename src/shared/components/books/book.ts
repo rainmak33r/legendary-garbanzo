@@ -15,10 +15,10 @@ export interface VolumeInfo {
 }
 
 interface ImageLinks {
-  extraLarge: string;
-  large: string;
-  medium: string;
-  small: string;
-  smallThumbnail: string;
-  thumbnail: string;
+  extraLarge?: string;
+  large?: string;
+  medium?: string;
+  small?: string;
+  smallThumbnail?: string;
+  thumbnail?: string;
 }

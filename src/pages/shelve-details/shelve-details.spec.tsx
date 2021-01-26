@@ -2,8 +2,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import { renderWithRouter } from '../../shared/testing-library.helper';
 import { APP_URLS } from '../../routes/app.urls';
-import { shelvesMock } from '../../../mocks/shelves';
-import { bookMock } from '../../../mocks/books';
+import { shelvesMock } from '../../mocks/shelves';
+import { bookMock } from '../../mocks/books';
 import { LS_SHELVES_KEY } from '../../shared/components/shelves';
 
 test('should render empty if nothing is returned', async () => {

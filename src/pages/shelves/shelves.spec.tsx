@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { shelvesMock } from '../../../mocks/shelves';
+import { shelvesMock } from '../../mocks/shelves';
 import { renderWithRouter } from '../../shared/testing-library.helper';
 import { APP_URLS } from '../../routes/app.urls';
 import { LS_SHELVES_KEY } from '../../shared/components/shelves';

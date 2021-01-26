@@ -13,6 +13,7 @@ import {
   Shelve,
   AddBookToShelveMenu,
 } from '../../shared/components/shelves';
+import { bookMock } from '../../mocks/books';
 
 export function BookDetails() {
   const { id } = useParams<{ id: string }>();
@@ -25,7 +26,7 @@ export function BookDetails() {
 
   const getData = useCallback(() => {
     get(
-      `https://www.googleapis.com/books/v1/volumes/${id}?key=AIzaSyAmouyNrolppxaPxOxcWnwGbX0GmtwiUhQ`
+      `https://www.googleapis.com/books/v1/volumes/${id}?key=${process.env.GOOGLE_BOOKS_KEY}`
     )
       .then((book: Book) => {
         setBook({ ...book });
@@ -34,8 +35,9 @@ export function BookDetails() {
         message.open({
           type: 'error',
           duration: 5,
-          content: '¿que?',
+          content: 'still no key, huh? well what did you expect to happen?!',
         });
+        setBook(bookMock);
       });
   }, [get, id]);
 

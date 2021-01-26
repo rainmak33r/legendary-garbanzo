@@ -1,4 +1,4 @@
-import { Shelve } from '../src/shared/components/shelves';
+import { Shelve } from '../shared/components/shelves';
 
 export const shelvesMock: Shelve[] = [
   {

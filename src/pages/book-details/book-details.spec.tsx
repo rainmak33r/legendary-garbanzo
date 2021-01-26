@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import { APP_URLS } from '../../routes/app.urls';
-import { bookMock } from '../../../mocks/books';
+import { bookMock } from '../../mocks/books';
 import { renderWithRouter } from '../../shared/testing-library.helper';
 
 describe('BookDetails negative', () => {

@@ -9,9 +9,9 @@ import {
   LS_SHELVES_KEY,
   Shelve,
   ShelveAddForm,
-  ShelveList,
 } from '../../shared/components/shelves';
 import { PlusOutlined } from '@ant-design/icons';
+import ListPage, { ListItem } from '../../shared/components/listPage';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -77,6 +77,14 @@ export function Shelves() {
   const handleShelveClick = (name) =>
     history.push(APP_URLS.shelveDetails.replace(':name', name));
 
+  const listData: ListItem[] = shelves.map((item: Shelve) => ({
+    id: item.name,
+    title: item.name,
+    description: item.category,
+    count: item.books.length,
+    rate: item.review?.rate,
+  }));
+
   return (
     <>
       <div style={{ marginBottom: '1rem' }}>
@@ -88,8 +96,8 @@ export function Shelves() {
           icon={<PlusOutlined />}
         />
       </div>
-      <ShelveList
-        shelves={shelves}
+      <ListPage
+        data={listData}
         onDelete={handleDelete}
         onShelveClick={handleShelveClick}
       />

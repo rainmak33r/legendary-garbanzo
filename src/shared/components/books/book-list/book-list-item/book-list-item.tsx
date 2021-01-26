@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Card } from 'antd';
 import { Book } from '../../book';
-import { StyledCard } from '../../../index';
+import { StyledCard } from '../../../card';
 
 export interface BookListItemProps {
   book: Book;
@@ -27,8 +27,9 @@ export function BookListItem(props: BookListItemProps) {
     <CardStyled
       data-testid="book-list-item"
       hoverable
+      style={{ width: 240 }}
       onClick={handleClick}
-      cover={<img alt="book-cover" src={imageLinks?.thumbnail} />}
+      cover={<img alt="book-cover" src={imageLinks?.smallThumbnail} />}
     >
       <Card.Meta title={title} description={authors?.join(', ')} />
     </CardStyled>
